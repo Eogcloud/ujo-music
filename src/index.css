@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body{
+  width: 100%;
+  height: 100%;
+}
+
+body{
+  background-color: black;
+}
+
+#spinnerContainer {
+  position: fixed;
+  z-index: 999;
+  height: 50px !important;
+  width: 50px !important;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  color: #698892 !important;
+}
