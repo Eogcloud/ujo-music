@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import config from './config';
 import { Route, Switch } from "react-router-dom";
 import Dashboard from './../dashboard/Dashboard.container';
 import MusicPlayer from './../musicplayer/MusicPlayer';
