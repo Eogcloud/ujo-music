@@ -17,18 +17,19 @@ const Menu = (props) => {
 
    const listItems = playlists.map((playlist) => {
       let className = null;
-      console.log(playlist.playListName)
-      if (playlist.playListName == currentPlaylistName)
-         className = 'active';
+      console.log(currentPlaylistName);
+      if (playlist.playListName == currentPlaylistName){
+        className = 'active';
+      }
       return (
-         <li key={playlist.playListName} className={className}>
-            <a href={`/user/${currentSlideDeck}/${currentPlaylistName}/${currentSongIndex}`}>{playlist.playListName}</a>
+         <li key={playlist.playListName}>
+            <a className={className} href={`/user/${currentSlideDeck}/${currentPlaylistName}/${currentSongIndex}`}>{playlist.playListName}</a>
          </li>
       )
    });
 
    return (
-     <div style={{height: "100%", width: "100%"}}>
+     <div style={{height: "100%", width: "100%", position: 'absolute', left: 0, right: 0}}>
       <ReactCSSTransitionGroup
         transitionAppear={true}
         transitionLeave={true}
