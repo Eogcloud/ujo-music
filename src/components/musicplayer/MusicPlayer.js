@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from "prop-types";
+import './MusicPlayer.css';
 
 const MusicPlayer = (props) => {
    const { 
@@ -7,7 +8,14 @@ const MusicPlayer = (props) => {
    } = props
    
    return (
-      <audio controls style={{width: "70%", display: 'block', margin: 'auto', position: 'relative', top: '90%'}}>
+      <audio controls style={{
+         width: "70%",
+         margin:'auto',
+         display: 'block',
+         opacity: 0.7,
+         position: 'relative',
+         top: '90%'
+      }}>
          <source src={song} type="audio/mpeg"/>
       </audio>
    )

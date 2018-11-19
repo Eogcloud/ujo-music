@@ -1,5 +1,6 @@
 audio {
-   width: "70%" !important;
-   margin:'auto' !important;
-   display: 'block' !important;
+   width: "70%";
+   margin:'auto';
+   display: 'block';
+   opacity: 0.7;
 }
