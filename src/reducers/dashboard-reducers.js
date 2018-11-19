@@ -3,7 +3,6 @@ let newState
 
 const dashboard = (state, action) => {
    const image1 = require("./../images/wallpaper.jpg");
-   const image2 = require("./../images/gif.gif");
 
    let appState = extend(
       {
@@ -16,16 +15,6 @@ const dashboard = (state, action) => {
             transitionLeaveTimeout: 1500,
             uri: image1,
             delay: 5000
-         },
-         {
-            transitionName: "example",
-            transitionAppear: true,
-            transitionLeave: true,
-            transitionAppearTimeout: 1500,
-            transitionEnterTimeout: 1500,
-            transitionLeaveTimeout: 1500,
-            uri: image2,
-            delay: 10000
          }],
          currentSlide: 0,
          loading: true,

@@ -4,6 +4,12 @@ import { Route, Switch } from "react-router-dom";
 import Dashboard from './../dashboard/Dashboard.container';
 import MusicPlayer from './../musicplayer/MusicPlayer';
 import UserProfile from '../userProfile/UserProfile.container';
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile
+} from "react-device-detect";
 
 class App extends Component {
   componentWillMount(){
@@ -11,19 +17,36 @@ class App extends Component {
     this.props.startSlideShow();
   }
   render(){
-    return (
-      <Switch>
-        <Route
-          exact path="/"
-          render={() => <Dashboard/>}
-        />
-        <Route
-          exact path="/user/:slideDeck/:playList/:songIndex"
-          // component={UserProfile} 
-          render={() => <UserProfile />}
-        />
-      </Switch>
-    )
+    if(isMobile){
+      return (
+        <Switch>
+          <Route
+            exact path="/"
+            render={() => <UserProfile />}
+          />
+          <Route
+            exact path="/user/:slideDeck/:playList/:songIndex"
+            // component={UserProfile} 
+            render={() => <UserProfile />}
+          />
+        </Switch>
+      )
+    }
+    else{
+        return (
+          <Switch>
+            <Route
+              exact path="/"
+              render={() => <Dashboard/>}
+            />
+            <Route
+              exact path="/user/:slideDeck/:playList/:songIndex"
+              // component={UserProfile} 
+              render={() => <UserProfile />}
+            />
+          </Switch>
+        )
+    }
   }
 }
 export default (App);

@@ -1,5 +1,11 @@
 const image1 = require("./../images/wallpaper.jpg");
 const image2 = require("./../images/gif.gif");
+const image3 = require("./../images/rainy.gif");
+const image4 = require("./../images/nice.jpg");
+const image5 = require("./../images/white.jpg");
+const image6 = require("./../images/ghost.jpg");
+const image7 = require("./../images/purple.jpg");
+const image8 = require("./../images/color.jpg");
 
 let song = require('./../songs/annoying.mp3');
 let songFromIPFS = 'https://ipfs.infura.io/ipfs/QmWFJQrFiGMLwkkVQfNQhq3CZLmRT1p1posPjqKCB3Nvfq'
@@ -12,46 +18,18 @@ let techno2 = require('./../songs/techno/techno2.mp3');
 
 let config = {
   slideDecks: { 
-    "PINK%20FLOYD": [{
-      transitionName: "example",
-      transitionAppear: true,
-      transitionLeave: true,
-      transitionAppearTimeout: 1500,
-      transitionEnterTimeout: 1500,
-      transitionLeaveTimeout: 1500,
-      uri: image1,
-      delay: 5000
-    },
-    {
-      transitionName: "example",
-      transitionAppear: true,
-      transitionLeave: true,
-      transitionAppearTimeout: 1500,
-      transitionEnterTimeout: 1500,
-      transitionLeaveTimeout: 1500,
-      uri: image2,
-      delay: 10000
-    }],
-    "LATE%20MORNING": [{
-      transitionName: "example",
-      transitionAppear: true,
-      transitionLeave: true,
-      transitionAppearTimeout: 1500,
-      transitionEnterTimeout: 1500,
-      transitionLeaveTimeout: 1500,
-      uri: image2,
-      delay: 5000
-    },
-    {
-      transitionName: "example",
-      transitionAppear: true,
-      transitionLeave: true,
-      transitionAppearTimeout: 1500,
-      transitionEnterTimeout: 1500,
-      transitionLeaveTimeout: 1500,
-      uri: image1,
-      delay: 10000
-    }],
+    "PINK%20FLOYD": [
+      {
+        transitionName: "example",
+        transitionAppear: true,
+        transitionLeave: true,
+        transitionAppearTimeout: 1500,
+        transitionEnterTimeout: 1500,
+        transitionLeaveTimeout: 1500,
+        uri: image3,
+        delay: 10000
+      }
+    ],
     "BERLIN": [{
       transitionName: "example",
       transitionAppear: true,
@@ -59,7 +37,27 @@ let config = {
       transitionAppearTimeout: 1500,
       transitionEnterTimeout: 1500,
       transitionLeaveTimeout: 1500,
-      uri: image2,
+      uri: image4,
+      delay: 5000
+    },
+    {
+      transitionName: "example",
+      transitionAppear: true,
+      transitionLeave: true,
+      transitionAppearTimeout: 1500,
+      transitionEnterTimeout: 1500,
+      transitionLeaveTimeout: 1500,
+      uri: image5,
+      delay: 10000
+    }],
+    "BURIAL": [{
+      transitionName: "example",
+      transitionAppear: true,
+      transitionLeave: true,
+      transitionAppearTimeout: 1500,
+      transitionEnterTimeout: 1500,
+      transitionLeaveTimeout: 1500,
+      uri: image7,
       delay: 5000
     },
     {
@@ -79,45 +77,35 @@ let config = {
       transitionAppearTimeout: 1500,
       transitionEnterTimeout: 1500,
       transitionLeaveTimeout: 1500,
-      uri: image1,
+      uri: image8,
       delay: 5000
-    },
-    {
-      transitionName: "example",
-      transitionAppear: true,
-      transitionLeave: true,
-      transitionAppearTimeout: 1500,
-      transitionEnterTimeout: 1500,
-      transitionLeaveTimeout: 1500,
-      uri: image2,
-      delay: 10000
-    }],
+    }]
   },
 
   playListsForUI: [
     {
       playListName: 'PINK FLOYD',
-      qoute: "Long you live and high you'll fly, and smiles you'll give, tears you'll cry and all you touch and all you see is all your life will ever be ― Pink Floyd",
-      genre: 'psychedelic',
-      timePeriod: '1960'
+      qoute: "'Strange memories on this nervous night in Las Vegas. Five years later? Six? It seems like a lifetime, or at least a Main Era—the kind of peak that never comes again. San Francisco in the middle sixties was a very special time and place to be a part of. Maybe it meant something. Maybe not, in the long run . . . ' ― Hunter S. Thompson",
+      genre: 'psychedelic rock',
+      timePeriod: '1965'
     },
     {
       playListName: 'BERLIN',
-      qoute: "Long you live and high you'll fly, and smiles you'll give, tears you'll cry and all you touch and all you see is all your life will ever be ― Pink Floyd",
+      qoute: "There is something about the name Berlin that evokes an image of men in hats and long coats standing under streetlamps on rainy nights",
       genre: 'House',
-      timePeriod: '1960'
+      timePeriod: '2000s..present'
     },
     {
-      playListName: 'LATE MORNING',
-      qoute: 'late mornings...',
-      genre: 'ambient',
-      timePeriod: '1960'
+      playListName: 'BURIAL',
+      qoute: "Late/Early sounds",
+      genre: 'ambient/electronic',
+      timePeriod: '2000s...present'
     },
     {
       playListName: 'HIP HOP',
-      qoute: "Hip-hop is the streets. Hip-hop is a couple of elements that it comes from back in the days... that feel of music with urgency that speaks to you. It speaks to your livelihood and it's not compromised. It's blunt. It's raw, straight off the street - from the beat to the voice to the words.' - Nas",
+      qoute: "'Hip-hop is the streets. Hip-hop is a couple of elements that it comes from back in the days... that feel of music with urgency that speaks to you. It speaks to your livelihood and it's not compromised. It's blunt. It's raw, straight off the street - from the beat to the voice to the words.' - Nas",
       genre: 'rap',
-      timePeriod: '1990'
+      timePeriod: '1990...present'
     },
   ],
   playList : {
@@ -125,11 +113,11 @@ let config = {
     song,
     songFromIPFS,
   ],
-    "LATE%20MORNING":[
+    "BERLIN":[
     ambient1,
     ambuent2,
   ],
-    "BERLIN":[
+    "BURIAL":[
     techno1,
     techno2,
     
