@@ -102,6 +102,7 @@ export const updateSongIndex = (event) => (dispatch, getState) => {
 
 export const shouldShowMenu = (menu) => (dispatch, getState) => {
   dispatch(showMenu(menu))
+  console.log(menu)
 }
 
 export const handleHideMusicPlayer = (event) => (dispatch, getState) => {

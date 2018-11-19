@@ -1,37 +1,65 @@
 import React, { Component } from 'react';
 import PropTypes from "prop-types";
 import './MusicPlayer.css';
+import {
+   BrowserView,
+   MobileView,
+   isBrowser,
+   isMobile
+} from "react-device-detect";
+
 
 const MusicPlayer = (props) => {
-   const { 
+   const {
       song,
       songIndex,
       hideMusicPlayer
    } = props
-   
-   return (
-      <div>
-         {
-            hideMusicPlayer || (
-               <audio controls src={song ? song[songIndex] : null} style={{
-                  width: "70%",
-                  margin:'auto',
-                  display: 'block',
-                  opacity: 0.7,
-                  position: 'absolute',
-                  top: '90%',
-                  left: '15%'
-               }}>
-               </audio>
-            )
-   
-         }
-      </div>
-   )
+
+   if (isMobile)
+      return (
+         <div>
+            {
+               hideMusicPlayer || (
+                  <audio controls src={song ? song[songIndex] : null} style={{
+                     width: "70%",
+                     margin: 'auto',
+                     display: 'block',
+                     opacity: 0.7,
+                     position: 'absolute',
+                     top: '80%',
+                     left: '15%'
+                  }}>
+                  </audio>
+               )
+
+            }
+         </div>
+      )
+   else
+      return (
+         <div>
+            {
+               hideMusicPlayer || (
+                  <audio controls src={song ? song[songIndex] : null} style={{
+                     width: "70%",
+                     margin: 'auto',
+                     display: 'block',
+                     opacity: 0.7,
+                     position: 'absolute',
+                     top: '90%',
+                     left: '15%'
+                  }}>
+                  </audio>
+               )
+
+            }
+         </div>
+      )
 }
 
 MusicPlayer.propTypes = {
-   song: PropTypes.string     
+   song: PropTypes.string
 };
 
 // MusicPlayer.defaultProps = {

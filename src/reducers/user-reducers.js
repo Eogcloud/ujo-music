@@ -80,7 +80,7 @@ const user = (state, action) => {
       sortedPlayLists: [],
       menu: true,
       timer: true,
-      hideMusicPlayer: true
+      hideMusicPlayer: false
     }, state);
 
   switch (action.type) {
