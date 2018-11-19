@@ -47,23 +47,24 @@ class UserProfile extends Component {
       currentSlide,
       sortedPlayList,
       updateSongIndex
-    } = this.props
+    } = this.props;
+
     let menu = true;
 
     if (menu)
       return (
-        <div style={{ height: '100%', width: '100%' }}>
+        <div style={{height: '100%', width: '100%'}}>
           <Menu />
-          <div id="menu" onClick={this.changeMenu.bind(this)}>close</div>
+          <div id="menu" onClick={this.menu = true}>close</div>
         </div>
       )
     else
       return (
         <div
           onKeyPress={updateSongIndex}
-          tabIndex="0"
+          
         >
-          <div id="menu" onClick={this.changeMenu.bind(this)}>close</div>
+          <div id="menu" onClick={this.menu = true}>close</div>
 
           <Wallpaper
             transitionAppear={slideDecks[slideDeckName] ? slideDecks[slideDeckName][currentSlide].transitionAppear : null}

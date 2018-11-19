@@ -28,6 +28,7 @@ const Menu = (props) => {
    });
 
    return (
+     <div style={{height: "100%", width: "100%"}}>
       <ReactCSSTransitionGroup
         transitionAppear={true}
         transitionLeave={true}
@@ -62,6 +63,7 @@ const Menu = (props) => {
          <div className="bottom" style={{ height: '100%', width: '10%', border: '0.25px solid #1f1e1e', position: 'absolute', left: '90%', top: '0%' }}></div>
       </div>
       </ReactCSSTransitionGroup>
+    </div>
    )
 }
 
