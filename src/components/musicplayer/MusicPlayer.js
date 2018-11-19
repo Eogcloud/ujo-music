@@ -10,50 +10,43 @@ import {
 
 
 const MusicPlayer = (props) => {
-   const {
+   const { 
       song,
       songIndex,
       hideMusicPlayer
    } = props
 
+   console.log(hideMusicPlayer)
    if (isMobile)
       return (
          <div>
-            {
-               hideMusicPlayer || (
-                  <audio controls src={song ? song[songIndex] : null} style={{
-                     width: "70%",
-                     margin: 'auto',
-                     display: 'block',
-                     opacity: 0.7,
-                     position: 'absolute',
-                     top: '80%',
-                     left: '15%'
-                  }}>
-                  </audio>
-               )
-
-            }
+            <audio controls src={song ? song[songIndex] : null} style={{
+               width: "70%",
+               margin: 'auto',
+               display: 'block',
+               opacity: 0.7,
+               position: 'absolute',
+               top: '80%',
+               left: '15%',
+               visibility: hideMusicPlayer
+            }}>
+            </audio>
          </div>
       )
    else
       return (
          <div>
-            {
-               hideMusicPlayer || (
-                  <audio controls src={song ? song[songIndex] : null} style={{
-                     width: "70%",
-                     margin: 'auto',
-                     display: 'block',
-                     opacity: 0.7,
-                     position: 'absolute',
-                     top: '90%',
-                     left: '15%'
-                  }}>
-                  </audio>
-               )
-
-            }
+            <audio controls src={song ? song[songIndex] : null} style={{
+               width: "70%",
+               margin: 'auto',
+               display: 'block',
+               opacity: 0.7,
+               position: 'absolute',
+               top: '90%',
+               left: '15%',
+               visibility: hideMusicPlayer
+            }}>
+            </audio>
          </div>
       )
 }

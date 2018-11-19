@@ -14,7 +14,6 @@ const Wallpaper = (props) => {
       wallpaperUri,
       children
    } = props;
-   
    return (
       <CSSTransitionGroup
          transitionAppear={transitionAppear}

@@ -13,9 +13,9 @@ const changeSongIndex = (songIndex) => ({
   songIndex
 });
 
-const updateLoading = (currentSlide) => ({
+const updateLoading = (loading) => ({
   type: 'UPDATE_LOADING',
-  currentSlide
+  loading
 });
 
 const updateCurrentSlide = (currentSlide) => ({
@@ -43,6 +43,17 @@ const updateTimer = (timer) => ({
   timer
 });
 
+const updatePlaylistsForUI = (playListsForUI) => ({
+  type: 'SHOW_MUSIC_PLAYER',
+  playListsForUI
+});
+
+export const changeLoadingUser = (loading) => (dispatch) => {
+  setTimeout(()=>{
+     dispatch(updateLoading(loading));
+  }, 500);
+}
+
 export const updateAllUserValues = (slideDeckName, playListName, songIndex) => (dispatch, getState) => {
   dispatch(updateSlideDeckName(slideDeckName))
   dispatch(updatePlayList(playListName))
@@ -56,12 +67,15 @@ const createUserPlayLists = () =>  (dispatch, getState) => {
   const state = getState().user
 
   let sortedPlayList = []
+  let playListsUI = []
    
   let keys = Object.keys(state.playList);
   for (let i = 0; i < keys.length; i++){
     sortedPlayList.push(keys[i])
+    //playListsUI.push(state.playList[keys[i]][2])
   }
-  
+
+  //dispatch(updatePlaylistsForUI(playListsUI))
   dispatch(sortPlayList(sortedPlayList))
 }
 
@@ -70,69 +84,57 @@ const startSlideShow = () => (dispatch, getState) => {
   let slideDecks = state.slideDecks;
   let currentSlide = state.currentSlide;
   let slideDeckName = state.slideDeckName;
+  if(slideDecks[slideDeckName]){
+    let delay = slideDecks[slideDeckName][currentSlide].delay;
+    let nextSlide = currentSlide + 1;
+    
+    if(nextSlide >= slideDecks[slideDeckName].length){
+      nextSlide = 0;
+    }
 
-  let delay = slideDecks[slideDeckName][currentSlide].delay;
-  let nextSlide = currentSlide + 1;
-  
-  if(nextSlide >= slideDecks[slideDeckName].length){
-     nextSlide = 0;
+    setTimeout(()=>{
+      dispatch(updateCurrentSlide(nextSlide));
+      dispatch(startSlideShow());
+    }, delay)
   }
-
-  setTimeout(()=>{
-     dispatch(updateCurrentSlide(nextSlide));
-     dispatch(startSlideShow());
-  }, delay)
 }
 
 export const updateSongIndex = (event) => (dispatch, getState) => {
   const state = getState().user
 
-  if(event.which == 37){
+  if(event.which == 39){
     if(state.songIndex < state.playList[state.playListName].length - 1){
       let songIndex = Number(state.songIndex) + 1
       dispatch(changeSongIndex(songIndex))
+      dispatch(handleHideMusicPlayer(true))
     } 
-  } else if (event.which == 39) {
+  } else if (event.which == 37) {
     if(state.songIndex > 0){
       let songIndex = Number(state.songIndex) - 1
       dispatch(changeSongIndex(songIndex))
+      dispatch(handleHideMusicPlayer(true))
     } 
   }
 }
 
 export const shouldShowMenu = (menu) => (dispatch, getState) => {
   dispatch(showMenu(menu))
-  console.log(menu)
 }
 
 export const handleHideMusicPlayer = (event) => (dispatch, getState) => {
   const state = getState().user
   dispatch(hideMusicPlayer(false))
 
-  // if(event){
-  //   // dispatch(hideMusicPlayer(false))
-  //   // console.log(state.timer)
-  //   // if(!state.timer){
-  //   //   setTimeout(()=>{
-  //   //     dispatch(updateTimer(false))
-  //   //   }, 5000)
-  //   // }
-  // }
-
-  
-  // if(state.timer){
-  //   setTimeout(()=>{
-  //     console.log("hidded")
-  //     dispatch(hideMusicPlayer(true))
-  //     dispatch(updateTimer(false))
-  //   }, 5000)
-  // } 
-  
-  // if(timer == 0){
-  //   dispatch(hideMusicPlayer(true))
-  // }
+  if(event){
+    if(state.timer){
+      dispatch(updateTimer(false))
+      setTimeout(()=>{
+        dispatch(hideMusicPlayer(true))
+        dispatch(updateTimer(true))
+      }, 5000)
+    }
+  }
 }
-
 
 
 

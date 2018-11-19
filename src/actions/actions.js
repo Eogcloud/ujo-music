@@ -6,7 +6,8 @@ import { changeLoading,
 import {  updateAllUserValues,
           updateSongIndex,
           shouldShowMenu,
-          handleHideMusicPlayer
+          handleHideMusicPlayer,
+          changeLoadingUser
        } from './user-actions';
 
 export { changeLoading,
@@ -15,5 +16,6 @@ export { changeLoading,
          updateAllUserValues,
          updateSongIndex,
          shouldShowMenu,
-         handleHideMusicPlayer
+         handleHideMusicPlayer,
+         changeLoadingUser
        };

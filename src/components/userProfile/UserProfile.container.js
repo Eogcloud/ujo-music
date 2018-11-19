@@ -2,7 +2,8 @@ import { connect } from 'react-redux'
 import { updateAllUserValues,
          updateSongIndex,
          shouldShowMenu,
-         handleHideMusicPlayer
+         handleHideMusicPlayer,
+         changeLoadingUser
      } from '../../actions/actions'
 
 import UserProfile from './UserProfile'
@@ -18,7 +19,8 @@ const mapStateToProps = (state) => {
     loading,
     sortedPlayList,
     menu,
-    hideMusicPlayer
+    hideMusicPlayer,
+    playListsForUI
   } = state.user
 
   return {
@@ -31,7 +33,8 @@ const mapStateToProps = (state) => {
     sortedPlayList,
     loading,
     menu,
-    hideMusicPlayer
+    hideMusicPlayer,
+    playListsForUI
   }
 }
 
@@ -40,7 +43,8 @@ const mapDispatchToProps = (dispatch) => {
     updateAllUserValues : (slideDeckName, playList, songIndex) => dispatch(updateAllUserValues(slideDeckName, playList, songIndex)),
     updateSongIndex: (event) => dispatch(updateSongIndex(event)),
     shouldShowMenu: (menu) => dispatch(shouldShowMenu(menu)),
-    handleMouseMovement: (event) => dispatch(handleHideMusicPlayer(event))
+    handleMouseMovement: (event) => dispatch(handleHideMusicPlayer(event)),
+    changeLoading: (loading) => dispatch(changeLoadingUser(loading))
   }
 }
 

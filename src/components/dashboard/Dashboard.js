@@ -42,7 +42,7 @@ const Dashboard = (props) => {
             transitionEnterTimeout={0}
             transitionLeaveTimeout={0}
             transitionName={'info'}>
-            <a id="mainPageButton" href={`/user/${slideDecks[0].transitionName}/${"chill"}/${0}`}>Start Listening</a>   
+            <a id="mainPageButton" href={`/user/${"PINK%20FLOYD"}/${"PINK%20FLOYD"}/${0}`}>Start Listening</a>   
          </CSSTransitionGroup>
          </Wallpaper> 
       )  
