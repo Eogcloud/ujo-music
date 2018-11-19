@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import Logo from './../logo/Logo';
 import Wallpaper from './../wallpaper/Wallpaper';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import './Dashboard.css';
 // import { Route, Redirect } from 'react-router';
 // import { Link } from 'react-router-dom';
 // import { changeLoading } from '../../actions/actions';
@@ -29,19 +30,20 @@ const Dashboard = (props) => {
             transitionAppear={slideDecks[currentSlide].transitionAppear}
             transitionLeave={true}
             transitionName={slideDecks[currentSlide].transitionName}
-            transitionAppear={slideDecks[currentSlide].transitionAppearTimeout}
             transitionEnterTimeout={slideDecks[currentSlide].transitionEnterTimeout}
             transitionLeaveTimeout={slideDecks[currentSlide].transitionLeaveTimeout}
             wallpaperUri={slideDecks[currentSlide].uri}
             key={currentSlide}
          >
-          <Logo pos={{ "x" :   "18%",  " y": "8%" }} color={"black"} font={"'Questrial', sans-serif"} key={currentSlide} />
-         <button>
-            <a href={`/user/${slideDecks[0].transitionName}/${"chill"}/${0}`}>Click me!</a>
-            {/* <Link
-              to={{pathname: `/user/${slideDecks[0].transitionName}/${0}`, props: slideDecks[0]} }>Click me!
-            </Link> */}    
-         </button>          
+          <Logo pos={{ x: "20%", y: "10%" }} color={"black"} font={"'Questrial', sans-serif"} key={currentSlide} />
+          <CSSTransitionGroup
+            transitionAppear={true}
+            transitionAppearTimeout={5000}
+            transitionEnterTimeout={0}
+            transitionLeaveTimeout={0}
+            transitionName={'info'}>
+            <a id="mainPageButton" href={`/user/${slideDecks[0].transitionName}/${"chill"}/${0}`}>Start Listening</a>   
+         </CSSTransitionGroup>
          </Wallpaper> 
       )  
 }

@@ -4,6 +4,7 @@ import { CSSTransitionGroup } from 'react-transition-group'
 import PropTypes from "prop-types";
 
 const Logo = (props) => {
+   console.log(props);
    return (
       <div id="logoContainer" style={{ fontFamily: props.font, color: props.color, right: props.pos.x, top: props.pos.y }}>
          <CSSTransitionGroup
@@ -38,7 +39,7 @@ Logo.propTypes = {
 };
 
 Logo.defaultProps = {
-   "pos": { "x": "18%", "y": "8%" },
+   "pos": { "x": "18%", "y": "20%" },
    "color": "black",
    "font": "'Questrial', sans-serif",
 };

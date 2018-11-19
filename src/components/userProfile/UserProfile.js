@@ -143,6 +143,11 @@ class UserProfile extends Component {
             >
 
             </Wallpaper>
+            <div style={{position: 'absolute', top: '81%', left: '16.5%'}}>
+             <h2 style={{color:'#eeecea', fontFamily: "'Playfair Display SC', serif"}}>Pink Floyd</h2> 
+ 
+              <h3 style={{color:'#eeecea', fontFamily: "'Playfair Display SC', serif", marginTop: '10px'}}>Comfortably Numb</h3>
+            </div>
             <MusicPlayer
               song={playList[playListName] ? playList[playListName] : null}
               songIndex={songIndex}
