@@ -49,7 +49,7 @@ class UserProfile extends Component {
       updateSongIndex
     } = this.props;
 
-    let menu = true;
+    let menu = false;
 
     if (menu)
       return (
@@ -62,9 +62,9 @@ class UserProfile extends Component {
       return (
         <div
           onKeyPress={updateSongIndex}
-          
+          style={{height:'100%'}}
         >
-          <div id="menu" onClick={this.menu = true}>close</div>
+          <div id="menu" onClick={this.menu = true}>menu</div>
 
           <Wallpaper
             transitionAppear={slideDecks[slideDeckName] ? slideDecks[slideDeckName][currentSlide].transitionAppear : null}

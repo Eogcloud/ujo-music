@@ -7,7 +7,7 @@ const MusicPlayer = (props) => {
    } = props
    
    return (
-      <audio controls>
+      <audio controls style={{width: "70%", display: 'block', margin: 'auto', position: 'relative', top: '90%'}}>
          <source src={song} type="audio/mpeg"/>
       </audio>
    )
