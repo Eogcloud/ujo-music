@@ -5,7 +5,6 @@ const updateLoading = (loading) => ({
 
 export const changeLoading = (loading) => (dispatch) => {
    setTimeout(()=>{
-      console.log(loading);
       dispatch(updateLoading(loading));
    }, 750);
 }
@@ -42,7 +41,6 @@ export const startSlideShow = () => (dispatch, getState) => {
 
    let timer = setTimeout(()=>{
       dispatch(updateCurrentSlide(nextSlide));
-      console.log(startSlideShow)
       dispatch(startSlideShow());
    }, delay)
    dispatch(updateTimer(timer));

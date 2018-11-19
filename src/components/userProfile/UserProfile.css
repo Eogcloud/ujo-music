@@ -1,0 +1,17 @@
+#menu {
+   -webkit-transform: rotate(90deg);
+   -moz-transform: rotate(90deg);
+   -o-transform: rotate(90deg);
+   -ms-transform: rotate(90deg);
+   transform: rotate(90deg);
+   display: inline-block;
+   font-size: 17px;
+   font-weight: bold;
+   color: white;
+   position: fixed;
+   right: 4%;
+   top: 7%;
+   z-index: 9999;
+   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+ }
+ 

@@ -1,6 +1,15 @@
-import {changeLoading} from './dashboard-actions';
-import {startSlideShow} from './dashboard-actions';
-import {stopTimer} from './dashboard-actions';
-export {changeLoading};
-export {startSlideShow};
-export {stopTimer};
+import { changeLoading,
+         startSlideShow,
+         stopTimer
+       } from './dashboard-actions';
+
+import {  updateAllUserValues,
+          updateSongIndex
+       } from './user-actions';
+
+export { changeLoading,
+         startSlideShow,
+         stopTimer,
+         updateAllUserValues,
+         updateSongIndex
+       };

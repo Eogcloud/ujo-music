@@ -25,3 +25,7 @@ body{
   right: 0;
   color: #698892 !important;
 }
+
+#root{
+  height: 100%;
+}
