@@ -5,10 +5,10 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; // ES6
 import PropTypes from "prop-types";
 import './Menu.css';
 import {
-  BrowserView,
-  MobileView,
-  isBrowser,
-  isMobile
+   BrowserView,
+   MobileView,
+   isBrowser,
+   isMobile
 } from "react-device-detect";
 
 const Menu = (props) => {
@@ -101,45 +101,45 @@ const Menu = (props) => {
           </div>
         </ReactCSSTransitionGroup>
       </div>
-    )
+   )
 }
 
 Menu.propTypes = {
-  playlists: PropTypes.array,
-  qoute: PropTypes.string
+   playlists: PropTypes.array,
+   qoute: PropTypes.string
 };
 
 Menu.defaultProps = {
-  playlists: [
-    {
-      playListName: 'PINK FLOYD',
-      qoute: "Long you live and high you'll fly, and smiles you'll give, tears you'll cry and all you touch and all you see is all your life will ever be ― Pink Floyd",
-      genre: 'psychedelic',
-      timePeriod: '1960'
-    },
-    {
-      playListName: 'BERLIN',
-      qoute: "Long you live and high you'll fly, and smiles you'll give, tears you'll cry and all you touch and all you see is all your life will ever be ― Pink Floyd",
-      genre: 'House',
-      timePeriod: '1960'
-    },
-    {
-      playListName: 'LATE MORNING',
-      qoute: 'late mornings...',
-      genre: 'ambient',
-      timePeriod: '1960'
-    },
-    {
-      playListName: 'HIP HOP',
-      qoute: "Hip-hop is the streets. Hip-hop is a couple of elements that it comes from back in the days... that feel of music with urgency that speaks to you. It speaks to your livelihood and it's not compromised. It's blunt. It's raw, straight off the street - from the beat to the voice to the words.' - Nas",
-      genre: 'rap',
-      timePeriod: '1990'
-    }
-  ],
-  currentPlaylistName: 'PINK FLOYD',
-  currentPlaylistIndex: 0,
-  currentSlideDeck: 'example',
-  currentSongIndex: 0
+   playlists: [
+      {
+         playListName: 'PINK FLOYD',
+         qoute: "Long you live and high you'll fly, and smiles you'll give, tears you'll cry and all you touch and all you see is all your life will ever be ― Pink Floyd",
+         genre: 'psychedelic',
+         timePeriod: '1960'
+      },
+      {
+         playListName: 'BERLIN',
+         qoute: "Long you live and high you'll fly, and smiles you'll give, tears you'll cry and all you touch and all you see is all your life will ever be ― Pink Floyd",
+         genre: 'House',
+         timePeriod: '1960'
+      },
+      {
+         playListName: 'LATE MORNING',
+         qoute: 'late mornings...',
+         genre: 'ambient',
+         timePeriod: '1960'
+      },
+      {
+         playListName: 'HIP HOP',
+         qoute: "Hip-hop is the streets. Hip-hop is a couple of elements that it comes from back in the days... that feel of music with urgency that speaks to you. It speaks to your livelihood and it's not compromised. It's blunt. It's raw, straight off the street - from the beat to the voice to the words.' - Nas",
+         genre: 'rap',
+         timePeriod: '1990'
+      }
+   ],
+   currentPlaylistName: 'PINK FLOYD',
+   currentPlaylistIndex: 0,
+   currentSlideDeck: 'example',
+   currentSongIndex: 0
 };
 
 export default (Menu);

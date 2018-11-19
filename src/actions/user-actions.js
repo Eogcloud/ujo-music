@@ -48,6 +48,16 @@ const updatePlaylistsForUI = (playListsForUI) => ({
   playListsForUI
 });
 
+const updatCurrentSong = (currentSong) => ({
+  type: 'UPDATE_CURRENT_SONG',
+  currentSong
+});
+
+const slideShowActive = (isSlideShowActive) => ({
+  type: 'SLIDESHOW_ACTIVE',
+  isSlideShowActive
+});
+
 export const changeLoadingUser = (loading) => (dispatch) => {
   setTimeout(()=>{
      dispatch(updateLoading(loading));
@@ -65,18 +75,20 @@ export const updateAllUserValues = (slideDeckName, playListName, songIndex) => (
 
 const createUserPlayLists = () =>  (dispatch, getState) => {
   const state = getState().user
-
   let sortedPlayList = []
-  let playListsUI = []
-   
-  let keys = Object.keys(state.playList);
-  for (let i = 0; i < keys.length; i++){
-    sortedPlayList.push(keys[i])
-    //playListsUI.push(state.playList[keys[i]][2])
-  }
 
-  //dispatch(updatePlaylistsForUI(playListsUI))
-  dispatch(sortPlayList(sortedPlayList))
+  let playListsUI = state.playListsForUI
+  let currentPlaylistName = state.playListName
+  
+  for (let i = 0; i < playListsUI.length; i++){
+    if(currentPlaylistName){
+      let fixedCurrentPlaylistName = currentPlaylistName.replace(/%20/g, ' ');
+      if(playListsUI[i].playListName === fixedCurrentPlaylistName){
+        dispatch(updatCurrentSong(playListsUI[i].song))
+      }
+    }
+    
+  }
 }
 
 const startSlideShow = () => (dispatch, getState) => {
@@ -101,6 +113,7 @@ const startSlideShow = () => (dispatch, getState) => {
 
 export const updateSongIndex = (event) => (dispatch, getState) => {
   const state = getState().user
+  let playListsUI = state.currentSong
 
   if(event.which == 39){
     if(state.songIndex < state.playList[state.playListName].length - 1){

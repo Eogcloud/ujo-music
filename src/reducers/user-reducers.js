@@ -15,7 +15,9 @@ const user = (state, action) => {
       menu: true,
       timer: true,
       hideMusicPlayer: false,
-      playListsForUI: config.playListsForUI
+      playListsForUI: config.playListsForUI,
+      currentSong: "",
+      isSlideShowActive: false,
     }, state);
 
   switch (action.type) {
@@ -67,6 +69,16 @@ const user = (state, action) => {
     case 'UPDATE_PLAYLISTS_UI':
       newState = extend(appState, {
         playListsForUI: action.playListsForUI
+      });
+      return newState
+    case 'UPDATE_CURRENT_SONG':
+      newState = extend(appState, {
+        currentSong: action.currentSong
+      });
+      return newState
+    case 'SLIDESHOW_ACTIVE':
+      newState = extend(appState, {
+        isSlideShowActive: action.isSlideShowActive
       });
       return newState
     default:

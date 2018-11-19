@@ -25,6 +25,7 @@ class UserProfile extends Component {
     currentSlide: PropTypes.number,
     sortedPlayList: PropTypes.array,
     menu: PropTypes.bool,
+    currentSong: PropTypes.array,
     handleMouseMovement: PropTypes.func,
     updateAllUserValues: PropTypes.func,
     updateSongIndex: PropTypes.func,
@@ -43,7 +44,11 @@ class UserProfile extends Component {
     let songIndex = urlData[6]
     changeLoading(false)
     updateAllUserValues(slideDeckName, playListName, songIndex)
-    shouldShowMenu(true)
+    if(document.referrer.split('/').length > 4){
+      shouldShowMenu(false)
+    } else {
+      shouldShowMenu(true)
+    }
   }
 
   render() {
@@ -57,6 +62,7 @@ class UserProfile extends Component {
       menu,
       sortedPlayList,
       loading,
+      currentSong,
       updateSongIndex,
       hideMusicPlayer,
       handleMouseMovement,
@@ -94,9 +100,9 @@ class UserProfile extends Component {
               <div style={{ backgroundImage: "url(" + slide + ")", position: 'absolute', top: '15%', left: '20%' }} className="rotating"> </div>
             </CSSTransitionGroup>
             <div style={{position: 'relative', top: '55%'}}>
-             <h2 style={{color:'#eeecea', fontFamily: "'Playfair Display SC', serif"}}>Pink Floyd</h2> 
+             <h2 style={{color:'#eeecea', fontFamily: "'Playfair Display SC', serif"}}>{playListName ? playListName.replace(/%20/g, ' '): null}</h2> 
  
-              <h3 style={{color:'#eeecea', fontFamily: "'Playfair Display SC', serif", marginTop: '10px'}}>Comfortably Numb</h3>
+              <h3 style={{color:'#eeecea', fontFamily: "'Playfair Display SC', serif", marginTop: '10px'}}>{currentSong[songIndex]}</h3>
             </div>
             <MusicPlayer
               song={playList[playListName] ? playList[playListName] : null}
@@ -149,9 +155,9 @@ class UserProfile extends Component {
             >
             </Wallpaper>
             <div style={{position: 'absolute', top: '81%', left: '16.5%'}}>
-             <h2 style={{color:'#eeecea', fontFamily: "'Playfair Display SC', serif", visibility:musicPlayerVisible}}>Pink Floyd</h2> 
+             <h2 style={{color:'#eeecea', fontFamily: "'Playfair Display SC', serif", visibility:musicPlayerVisible}}>{playListName.replace(/%20/g, ' ')}</h2> 
  
-              <h3 style={{color:'#eeecea', fontFamily: "'Playfair Display SC', serif", marginTop: '10px', visibility:musicPlayerVisible}}>Comfortably Numb</h3>
+              <h3 style={{color:'#eeecea', fontFamily: "'Playfair Display SC', serif", marginTop: '10px', visibility:musicPlayerVisible}}>{currentSong[songIndex]}</h3>
             </div>
             <MusicPlayer
               song={playList[playListName] ? playList[playListName] : null}
@@ -163,7 +169,5 @@ class UserProfile extends Component {
     }
   }
 }
-
-
 
 export default (UserProfile);

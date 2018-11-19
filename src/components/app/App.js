@@ -16,6 +16,7 @@ class App extends Component {
     this.props.changeLoading(false);
     this.props.startSlideShow();
   }
+  
   render(){
     if(isMobile){
       return (

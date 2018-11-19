@@ -19,6 +19,7 @@ const mapStateToProps = (state) => {
     loading,
     sortedPlayList,
     menu,
+    currentSong,
     hideMusicPlayer,
     playListsForUI
   } = state.user
@@ -32,6 +33,7 @@ const mapStateToProps = (state) => {
     currentSlide,
     sortedPlayList,
     loading,
+    currentSong,
     menu,
     hideMusicPlayer,
     playListsForUI

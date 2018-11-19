@@ -39,11 +39,11 @@ export const startSlideShow = () => (dispatch, getState) => {
       nextSlide = 0;
    }
 
-   let timer = setTimeout(()=>{
-      dispatch(updateCurrentSlide(nextSlide));
-      dispatch(startSlideShow());
-   }, delay)
-   dispatch(updateTimer(timer));
+   // let timer = setTimeout(()=>{
+   //    dispatch(updateCurrentSlide(nextSlide));
+   //    dispatch(startSlideShow());
+   // }, delay)
+   // dispatch(updateTimer(timer));
 }
 
 const updateCurrentSlide = (currentSlide) => ({

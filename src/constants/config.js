@@ -87,25 +87,29 @@ let config = {
       playListName: 'PINK FLOYD',
       qoute: "'Strange memories on this nervous night in Las Vegas. Five years later? Six? It seems like a lifetime, or at least a Main Era—the kind of peak that never comes again. San Francisco in the middle sixties was a very special time and place to be a part of. Maybe it meant something. Maybe not, in the long run . . . ' ― Hunter S. Thompson",
       genre: 'psychedelic rock',
-      timePeriod: '1965'
+      timePeriod: '1965',
+      song: ['Comfortably Numb', 'Uncomfortably Numb']
     },
     {
       playListName: 'BERLIN',
       qoute: "There is something about the name Berlin that evokes an image of men in hats and long coats standing under streetlamps on rainy nights",
       genre: 'House',
-      timePeriod: '2000s..present'
+      timePeriod: '2000s..present',
+      song: ['Bubbles','NotBubbles']
     },
     {
       playListName: 'BURIAL',
       qoute: "Late/Early sounds",
       genre: 'ambient/electronic',
-      timePeriod: '2000s...present'
+      timePeriod: '2000s...present',
+      song: ['late in the morning', 'early in the morning']
     },
     {
       playListName: 'HIP HOP',
       qoute: "'Hip-hop is the streets. Hip-hop is a couple of elements that it comes from back in the days... that feel of music with urgency that speaks to you. It speaks to your livelihood and it's not compromised. It's blunt. It's raw, straight off the street - from the beat to the voice to the words.' - Nas",
       genre: 'rap',
-      timePeriod: '1990...present'
+      timePeriod: '1990...present',
+      song: ['Ether', 'The Takeover']
     },
   ],
   playList : {

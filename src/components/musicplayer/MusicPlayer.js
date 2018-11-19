@@ -16,11 +16,10 @@ const MusicPlayer = (props) => {
       hideMusicPlayer
    } = props
 
-   console.log(hideMusicPlayer)
    if (isMobile)
       return (
          <div>
-            <audio controls src={song ? song[songIndex] : null} style={{
+            <audio controls autoPlay src={song ? song[songIndex] : null} style={{
                width: "70%",
                margin: 'auto',
                display: 'block',
@@ -36,7 +35,7 @@ const MusicPlayer = (props) => {
    else
       return (
          <div>
-            <audio controls src={song ? song[songIndex] : null} style={{
+            <audio controls autoPlay src={song ? song[songIndex] : null} style={{
                width: "70%",
                margin: 'auto',
                display: 'block',
