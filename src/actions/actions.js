@@ -4,12 +4,16 @@ import { changeLoading,
        } from './dashboard-actions';
 
 import {  updateAllUserValues,
-          updateSongIndex
+          updateSongIndex,
+          shouldShowMenu,
+          handleHideMusicPlayer
        } from './user-actions';
 
 export { changeLoading,
          startSlideShow,
          stopTimer,
          updateAllUserValues,
-         updateSongIndex
+         updateSongIndex,
+         shouldShowMenu,
+         handleHideMusicPlayer
        };

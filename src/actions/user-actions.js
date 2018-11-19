@@ -28,10 +28,25 @@ const sortPlayList = (sortedPlayList) => ({
   sortedPlayList
 });
 
+const showMenu = (menu) => ({
+  type: 'SHOW_MENU',
+  menu
+});
+
+const hideMusicPlayer = (showMusicPlayer) => ({
+  type: 'SHOW_MUSIC_PLAYER',
+  showMusicPlayer
+});
+
+const updateTimer = (timer) => ({
+  type: 'UPDATE_TIMER',
+  timer
+});
+
 export const updateAllUserValues = (slideDeckName, playListName, songIndex) => (dispatch, getState) => {
   dispatch(updateSlideDeckName(slideDeckName))
   dispatch(updatePlayList(playListName))
-  dispatch(updateSongIndex(songIndex))
+  dispatch(changeSongIndex(songIndex))
   dispatch(createUserPlayLists())
   dispatch(startSlideShow())
   // console.log(slideDeckName, playListName, songIndex)
@@ -56,14 +71,13 @@ const startSlideShow = () => (dispatch, getState) => {
   let currentSlide = state.currentSlide;
   let slideDeckName = state.slideDeckName;
 
-  console.log(currentSlide)
   let delay = slideDecks[slideDeckName][currentSlide].delay;
   let nextSlide = currentSlide + 1;
   
   if(nextSlide >= slideDecks[slideDeckName].length){
      nextSlide = 0;
   }
-  console.log(nextSlide)
+
   setTimeout(()=>{
      dispatch(updateCurrentSlide(nextSlide));
      dispatch(startSlideShow());
@@ -72,20 +86,53 @@ const startSlideShow = () => (dispatch, getState) => {
 
 export const updateSongIndex = (event) => (dispatch, getState) => {
   const state = getState().user
-  console.log(event.target)
-  // if(event.keys){
-  //   if(state.songIndex<=state.playList[state.playListName].length){
-  //     let newSongIndex = state.songIndex + 1
-  //     console.log(newSongIndex)
-  //     dispatch(changeSongIndex(newSongIndex))
-  //   } 
-  // } else {
-  //   if(state.songIndex>0){
-  //     let newSongIndex = state.songIndex - 1
-  //     console.log(newSongIndex)
-  //     dispatch(changeSongIndex(newSongIndex))
-  //   } 
-  // }
-  
+
+  if(event.which == 37){
+    if(state.songIndex < state.playList[state.playListName].length - 1){
+      let songIndex = Number(state.songIndex) + 1
+      dispatch(changeSongIndex(songIndex))
+    } 
+  } else if (event.which == 39) {
+    if(state.songIndex > 0){
+      let songIndex = Number(state.songIndex) - 1
+      dispatch(changeSongIndex(songIndex))
+    } 
+  }
 }
+
+export const shouldShowMenu = (menu) => (dispatch, getState) => {
+  dispatch(showMenu(menu))
+}
+
+export const handleHideMusicPlayer = (event) => (dispatch, getState) => {
+  const state = getState().user
+  dispatch(hideMusicPlayer(false))
+
+  // if(event){
+  //   // dispatch(hideMusicPlayer(false))
+  //   // console.log(state.timer)
+  //   // if(!state.timer){
+  //   //   setTimeout(()=>{
+  //   //     dispatch(updateTimer(false))
+  //   //   }, 5000)
+  //   // }
+  // }
+
+  
+  // if(state.timer){
+  //   setTimeout(()=>{
+  //     console.log("hidded")
+  //     dispatch(hideMusicPlayer(true))
+  //     dispatch(updateTimer(false))
+  //   }, 5000)
+  // } 
+  
+  // if(timer == 0){
+  //   dispatch(hideMusicPlayer(true))
+  // }
+}
+
+
+
+
 

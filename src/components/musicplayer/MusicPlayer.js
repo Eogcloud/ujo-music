@@ -4,20 +4,29 @@ import './MusicPlayer.css';
 
 const MusicPlayer = (props) => {
    const { 
-      song 
+      song,
+      songIndex,
+      hideMusicPlayer
    } = props
    
    return (
-      <audio controls style={{
-         width: "70%",
-         margin:'auto',
-         display: 'block',
-         opacity: 0.7,
-         position: 'relative',
-         top: '90%'
-      }}>
-         <source src={song} type="audio/mpeg"/>
-      </audio>
+      <div>
+         {
+            hideMusicPlayer || (
+               <audio controls src={song ? song[songIndex] : null} style={{
+                  width: "70%",
+                  margin:'auto',
+                  display: 'block',
+                  opacity: 0.7,
+                  position: 'absolute',
+                  top: '90%',
+                  left: '15%'
+               }}>
+               </audio>
+            )
+   
+         }
+      </div>
    )
 }
 
@@ -25,8 +34,8 @@ MusicPlayer.propTypes = {
    song: PropTypes.string     
 };
 
-MusicPlayer.defaultProps = {
-   song: "https://ipfs.infura.io/ipfs/QmWFJQrFiGMLwkkVQfNQhq3CZLmRT1p1posPjqKCB3Nvfq"    
-};
+// MusicPlayer.defaultProps = {
+//    song: "https://ipfs.infura.io/ipfs/QmWFJQrFiGMLwkkVQfNQhq3CZLmRT1p1posPjqKCB3Nvfq"    
+// };
 
 export default (MusicPlayer);

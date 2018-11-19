@@ -77,7 +77,10 @@ const user = (state, action) => {
       songIndex: 0,
       currentSlide: 0,
       loading: false,
-      sortedPlayLists: []
+      sortedPlayLists: [],
+      menu: true,
+      timer: true,
+      hideMusicPlayer: true
     }, state);
 
   switch (action.type) {
@@ -109,6 +112,21 @@ const user = (state, action) => {
     case 'SORTED_PLAYLISTS':
       newState = extend(appState, {
         sortedPlayList: action.sortedPlayList
+      });
+      return newState
+    case 'SHOW_MENU':
+      newState = extend(appState, {
+         menu: action.menu
+      });
+      return newState
+    case 'SHOW_MUSIC_PLAYER':
+      newState = extend(appState, {
+        hideMusicPlayer: action.showMusicPlayer
+      });
+      return newState
+    case 'UPDATE_TIMER':
+      newState = extend(appState, {
+        timer: action.timer
       });
       return newState
     default:

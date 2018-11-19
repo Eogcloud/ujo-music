@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from "prop-types";
 import MusicPlayer from '../musicplayer/MusicPlayer';
 import Wallpaper from './../wallpaper/Wallpaper';
+
 import Menu from './../menu/Menu.js';
 import './UserProfile.css';
 
@@ -15,27 +16,32 @@ class UserProfile extends Component {
     songIndex: PropTypes.number,
     currentSlide: PropTypes.number,
     sortedPlayList: PropTypes.array,
+    menu: PropTypes.bool,
+    handleMouseMovement: PropTypes.bool,
     updateAllUserValues: PropTypes.func,
-    updateSongIndex: PropTypes.func
+    updateSongIndex: PropTypes.func,
+    shouldShowMenu: PropTypes.func,
   }
 
   componentWillMount = () => {
     const {
-      updateAllUserValues
+      updateAllUserValues,
+      shouldShowMenu
     } = this.props
     let urlData = window.location.href.split("/")
     let slideDeckName = urlData[4]
     let playListName = urlData[5]
     let songIndex = urlData[6]
     updateAllUserValues(slideDeckName, playListName, songIndex)
+    shouldShowMenu(true)
   }
 
-  changeMenu(event) {
-    if (this.state.menu)
-      this.setState({ menu: false })
-    else
-      this.setState({ menu: true })
-  }
+  // changeMenu(event) {
+  //   if (this.state.menu)
+  //     this.setState({ menu: false })
+  //   else
+  //     this.setState({ menu: true })
+  // }
 
   render() {
     const {
@@ -45,26 +51,37 @@ class UserProfile extends Component {
       playListName,
       songIndex,
       currentSlide,
+      menu,
       sortedPlayList,
-      updateSongIndex
-    } = this.props;
+      updateSongIndex,
+      hideMusicPlayer,
+      handleMouseMovement,
+      shouldShowMenu
+    } = this.props
 
-    let menu = false;
 
     if (menu)
       return (
         <div style={{height: '100%', width: '100%'}}>
-          <Menu />
-          <div id="menu" onClick={this.menu = true}>close</div>
+          <Menu
+            //  playLists = {sortedPlayList}
+            //  currentPlaylistIndex = {playList[playListName]}
+            //  currentPlaylistName = {}
+            //  currentSlideDeck = {}
+            //  currentSongIndex = {}
+          />
+          <div id="menu" onClick={()=>shouldShowMenu()}>close</div>
         </div>
       )
     else
       return (
         <div
-          onKeyPress={updateSongIndex}
-          style={{height:'100%'}}
+          onKeyDown={updateSongIndex}
+          onMouseMove={handleMouseMovement}
+          // tabIndex="0"
+          
         >
-          <div id="menu" onClick={this.menu = true}>menu</div>
+          <div id="menu" onClick={()=>shouldShowMenu(true)}>menu</div>
 
           <Wallpaper
             transitionAppear={slideDecks[slideDeckName] ? slideDecks[slideDeckName][currentSlide].transitionAppear : null}
@@ -78,15 +95,11 @@ class UserProfile extends Component {
           >
 
           </Wallpaper>
-          <MusicPlayer
-            song={playList[playListName] ? playList[playListName][songIndex] : null}
+            <MusicPlayer 
+            song = {playList[playListName] ? playList[playListName] : null}
+            songIndex = {songIndex}
+            hideMusicPlayer = {hideMusicPlayer}
           />
-          {/* <List 
-          currentSongIndex = {songIndex}
-          slideDecks = {slideDecks}
-          currentSlideDeck = {slideDeckName}
-          listItems = {sortedPlayList ? sortedPlayList : [1,1]}
-        /> */}
         </div>
       )
   }
